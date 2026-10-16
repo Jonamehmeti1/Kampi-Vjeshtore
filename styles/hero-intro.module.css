@@ -1,0 +1,669 @@
+/* Opening section only: these classes cannot change the rest of the page. */
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--brand-cream);
+  color: var(--ink);
+}
+.background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 65% center;
+}
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(var(--cream-rgb), 0.78) 0%,
+    rgba(var(--cream-rgb), 0.86) 45%,
+    rgba(var(--cream-rgb), 0.92) 100%
+  );
+}
+.inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 60px;
+  align-items: center;
+  max-width: 1680px;
+  min-height: max(660px, 100svh);
+  margin: 0 auto;
+  padding: 110px clamp(28px, 5.4vw, 94px) 64px;
+  flex-direction: column;
+  justify-content: center;
+}
+.copy {
+  min-width: 0;
+  max-width: 660px;
+  align-self: start;
+  padding-top: 34px;
+  justify-self: center;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 5px 15px 5px 5px;
+  margin: 0 0 20px;
+  border: 1px solid rgba(var(--gold-rgb), 0.75);
+  border-radius: 999px;
+  background: rgba(var(--cream-rgb), 0.88);
+  box-shadow: 0 5px 16px rgba(var(--gold-rgb), 0.15);
+  color: var(--brand-forest-dark);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.badgeIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 28px;
+  border-radius: 999px;
+  background: var(--brand-orange);
+  box-shadow: 0 3px 9px rgba(var(--orange-rgb), 0.25);
+}
+.badgeIcon svg {
+  width: 18px;
+  height: 18px;
+}
+.badgeLeaf {
+  display: flex;
+  margin-left: 7px;
+  color: var(--brand-orange-dark);
+}
+.badgeLeaf svg {
+  width: 19px;
+  height: 19px;
+}
+.title {
+  margin: 0;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.titleMain {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  font-size: clamp(40px, 4.9vw, 80px);
+  letter-spacing: -0.055em;
+  line-height: 1.04;
+}
+.titleAccent {
+  color: var(--brand-forest);
+}
+.titleSparks {
+  position: absolute;
+  right: -34px;
+  top: -24px;
+  width: 43px;
+  height: 49px;
+  transform: rotate(10deg);
+}
+.titleSparks i {
+  position: absolute;
+  width: 9px;
+  height: 28px;
+  border-radius: 9px;
+  background: var(--brand-lime);
+}
+.titleSparks i:nth-child(1) {
+  top: 0;
+  left: 1px;
+  transform: rotate(18deg);
+}
+.titleSparks i:nth-child(2) {
+  top: 13px;
+  left: 24px;
+  transform: rotate(54deg);
+}
+.titleSparks i:nth-child(3) {
+  top: 40px;
+  left: 34px;
+  height: 21px;
+  transform: rotate(92deg);
+}
+.subtitle {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  color: var(--brand-forest-dark);
+  font-size: clamp(14px, 1.9vw, 30px);
+  line-height: 1.3;
+  letter-spacing: 0.015em;
+  justify-content: center;
+}
+.subtitle::before {
+  content: "";
+  width: 40px;
+  height: 4px;
+  flex-shrink: 0;
+  border-radius: 4px;
+  background: var(--brand-lime);
+}
+.lead {
+  max-width: 560px;
+  margin: 0 0 18px;
+  color: var(--brand-orange-dark);
+  font-size: clamp(20px, 1.65vw, 26px);
+  font-weight: 800;
+  line-height: 1.4;
+}
+.description {
+  max-width: 640px;
+  margin: 0 0 26px;
+  color: var(--text-muted);
+  font-size: clamp(15px, 1.17vw, 18px);
+  line-height: 1.55;
+}
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  gap: 9px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.facts li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 48px;
+  padding: 12px 13px;
+  border: 1px solid rgba(var(--forest-rgb), 0.08);
+  border-radius: 15px;
+  background: rgba(var(--cream-rgb), 0.9);
+  box-shadow: 0 4px 13px rgba(var(--forest-rgb), 0.06);
+  color: var(--brand-forest-dark);
+  font-size: 12.5px;
+  line-height: 1.2;
+  font-weight: 800;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+.facts svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  color: var(--brand-forest);
+}
+
+/* Three editable cards with separate transparent spot illustrations. */
+.journey {
+  position: relative;
+  min-width: 0;
+  aspect-ratio: 1.55;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  max-width: 700px;
+  justify-self: center;
+}
+.journeyTrail {
+  position: absolute;
+  inset: -8% -7%;
+  width: 114%;
+  height: 116%;
+  overflow: visible;
+  pointer-events: none;
+}
+.journeyTrail path {
+  stroke: var(--brand-lime);
+  stroke-width: 5;
+  stroke-linecap: round;
+  stroke-dasharray: 9 10;
+  opacity: 0.85;
+}
+.dayCards {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: center;
+  gap: 11px;
+  width: 100%;
+  z-index: 1;
+}
+.dayCard {
+  --day-accent: var(--brand-gold);
+  --day-highlight: var(--brand-gold-light);
+  --day-badge-text: var(--ink);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+  min-height: 300px;
+  padding: 31px 13px 22px;
+  border: 3px solid var(--day-accent);
+  border-radius: 30px;
+  background: linear-gradient(155deg, var(--surface), var(--brand-cream));
+  box-shadow: 0 16px 25px rgba(var(--forest-rgb), 0.14);
+  text-align: center;
+  transform: translateY(20px) rotate(-5deg);
+}
+.forest {
+  --day-accent: #7ebc8a;
+  --day-highlight: var(--brand-lime-light);
+  --day-badge-text: var(--white);
+  min-height: 324px;
+  transform: translateY(-12px) rotate(-5deg);
+}
+.orange {
+  --day-accent: var(--brand-orange);
+  --day-highlight: var(--brand-orange-light);
+  --day-badge-text: var(--white);
+  transform: translateY(13px) rotate(-5deg);
+}
+.dayBadge {
+  position: absolute;
+  top: -23px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 23px;
+  border: 3px solid var(--surface);
+  border-radius: 999px;
+  background: var(--day-accent);
+  box-shadow: 0 5px 9px rgba(var(--forest-rgb), 0.12);
+  color: var(--day-badge-text);
+  font-size: 20px;
+  line-height: 1.1;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.forest .dayBadge {
+  background: var(--brand-forest);
+}
+.dayTitle {
+  position: relative;
+  z-index: 1;
+  margin: 0 0 10px;
+  color: var(--ink);
+  font-size: clamp(17px, 1.7vw, 27px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.06em;
+}
+.dayTitle span {
+  position: relative;
+}
+.dayTitle span::before {
+  content: "";
+  position: absolute;
+  left: -7px;
+  right: -7px;
+  height: 14px;
+  bottom: -2px;
+  z-index: -1;
+  border-radius: 8px;
+  background: var(--day-highlight);
+}
+.dayDescription {
+  max-width: 19ch;
+  margin: 0;
+  color: var(--text-muted);
+  font-size: clamp(12px, 1.02vw, 16px);
+  line-height: 1.5;
+}
+.illustration {
+  display: block;
+  background-image: url("/images/hero-journey-icons.png");
+  background-size: 300% 200%;
+  background-repeat: no-repeat;
+}
+.dayIcon {
+  flex-shrink: 0;
+  width: 126px;
+  height: 126px;
+  margin: -8px -10px 4px;
+}
+.magnifier {
+  background-position: 0% 0%;
+}
+.flask {
+  background-position: 50% 0%;
+}
+.bulb {
+  background-position: 100% 0%;
+}
+.rocket {
+  position: absolute;
+  width: 145px;
+  height: 145px;
+  right: -20px;
+  top: -65px;
+  background-position: 0% 100%;
+  z-index: 2;
+  transform: rotate(7deg);
+}
+.gear {
+  position: absolute;
+  width: 104px;
+  height: 104px;
+  left: 28%;
+  bottom: -24px;
+  background-position: 50% 100%;
+  z-index: 3;
+  transform: rotate(10deg);
+}
+.blocks {
+  position: absolute;
+  width: 132px;
+  height: 132px;
+  left: -35px;
+  bottom: -44px;
+  background-position: 100% 100%;
+  z-index: 3;
+}
+.sparkOne,
+.sparkTwo,
+.sparkThree {
+  position: absolute;
+  z-index: 3;
+  line-height: 1;
+  pointer-events: none;
+}
+.sparkOne {
+  left: 33%;
+  top: -19px;
+  color: var(--brand-gold);
+  font-size: 58px;
+  transform: rotate(10deg);
+}
+.sparkTwo {
+  left: -18px;
+  bottom: 78px;
+  color: var(--brand-orange);
+  font-size: 44px;
+  text-shadow: 1px 2px 0 var(--brand-gold);
+}
+.sparkThree {
+  right: 13px;
+  bottom: -20px;
+  color: var(--brand-lime);
+  font-size: 55px;
+  transform: rotate(15deg);
+}
+
+.body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px;
+  width: 100%;
+  align-items: center;
+}
+
+@media (min-width: 1600px) {
+  .inner {
+    min-height: max(780px, 100svh);
+  }
+  .dayCard {
+    min-height: 345px;
+  }
+  .forest {
+    min-height: 370px;
+  }
+  .dayIcon {
+    width: 150px;
+    height: 150px;
+  }
+}
+@media (max-width: 1150px) {
+  .inner {
+    gap: 35px;
+    padding-top: 120px;
+    padding-bottom: 64px;
+  }
+  .copy {
+    max-width: 760px;
+  }
+  .titleMain {
+    font-size: clamp(40px, 6.9vw, 72px);
+  }
+  .subtitle {
+    font-size: clamp(15px, 2.5vw, 26px);
+  }
+  .lead {
+    max-width: 650px;
+    font-size: 24px;
+  }
+  .description {
+    max-width: 760px;
+    font-size: 17px;
+  }
+  .facts li {
+    font-size: 12px;
+  }
+  .journey {
+    width: 100%;
+    max-width: 740px;
+    justify-self: center;
+    margin: 20px 0 0;
+  }
+  .dayTitle {
+    font-size: 24px;
+  }
+  .dayDescription {
+    font-size: 16px;
+  }
+  .body {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .copy {
+    padding-top: 0;
+    align-self: auto;
+  }
+}
+@media (max-width: 600px) {
+  .inner {
+    padding: 110px 22px 45px;
+    gap: 30px;
+  }
+  .badge {
+    margin-bottom: 21px;
+    font-size: 10px;
+  }
+  .title {
+    margin-bottom: 22px;
+  }
+  .titleMain {
+    font-size: clamp(29px, 8.7vw, 49px);
+    letter-spacing: -0.055em;
+  }
+  .titleSparks {
+    right: -20px;
+    top: -21px;
+    transform: scale(0.65);
+    transform-origin: left bottom;
+  }
+  .subtitle {
+    font-size: 13px;
+    gap: 8px;
+    letter-spacing: 0;
+  }
+  .subtitle::before {
+    width: 22px;
+    height: 3px;
+  }
+  .lead {
+    font-size: 20px;
+    margin-bottom: 17px;
+  }
+  .description {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+  .facts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .facts li {
+    padding: 12px 9px;
+    font-size: 10px;
+    justify-content: flex-start;
+  }
+  .facts svg {
+    width: 21px;
+    height: 21px;
+  }
+  .journey {
+    aspect-ratio: auto;
+    margin-top: 12px;
+    padding: 25px 6px 38px;
+  }
+  .dayCards {
+    grid-template-columns: 1fr;
+    gap: 31px;
+  }
+  .dayCard,
+  .forest,
+  .orange {
+    display: grid;
+    grid-template-columns: 95px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 10px;
+    align-items: center;
+    min-height: 165px;
+    padding: 24px 17px 16px 10px;
+    border-radius: 24px;
+    text-align: left;
+    transform: rotate(-2deg);
+  }
+  .forest {
+    transform: rotate(2deg);
+  }
+  .dayBadge {
+    top: -18px;
+    left: 24px;
+    transform: none;
+    font-size: 16px;
+    padding: 7px 18px;
+  }
+  .dayIcon {
+    width: 108px;
+    height: 108px;
+    margin: -4px -8px;
+    grid-row: 1 / span 2;
+  }
+  .dayTitle {
+    align-self: end;
+    font-size: 22px;
+    margin: 0 0 7px;
+  }
+  .dayTitle span::before {
+    height: 11px;
+  }
+  .dayDescription {
+    align-self: start;
+    max-width: none;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+  .journeyTrail {
+    inset: -5% -5%;
+    width: 110%;
+    height: 110%;
+  }
+  .rocket {
+    width: 102px;
+    height: 102px;
+    right: -14px;
+    top: -56px;
+  }
+  .blocks {
+    left: auto;
+    right: -14px;
+    bottom: -13px;
+    width: 102px;
+    height: 102px;
+  }
+  .gear {
+    left: -16px;
+    bottom: 0;
+    width: 83px;
+    height: 83px;
+  }
+  .sparkOne {
+    left: 56%;
+    top: -18px;
+    font-size: 40px;
+  }
+  .sparkTwo {
+    left: -17px;
+    bottom: 200px;
+    font-size: 33px;
+  }
+  .sparkThree {
+    right: -7px;
+    bottom: 210px;
+    font-size: 38px;
+  }
+}
+
+/* Leave extra room for the longest card heading on very narrow phones. */
+@media (max-width: 360px) {
+  .dayCard,
+  .forest,
+  .orange {
+    grid-template-columns: 76px minmax(0, 1fr);
+    column-gap: 8px;
+    padding-right: 12px;
+  }
+  .dayIcon {
+    width: 90px;
+    height: 90px;
+    margin-left: -6px;
+  }
+  .dayTitle {
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 600px) {
+  .overlay {
+    background: linear-gradient(
+      180deg,
+      rgba(var(--cream-rgb), 0.98) 0%,
+      rgba(var(--cream-rgb), 0.94) 43%,
+      rgba(var(--cream-rgb), 0.9) 100%
+    );
+  }
+  .titleSparks {
+    right: -38px;
+    top: -14px;
+    transform: scale(0.5);
+  }
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: clamp(100px, 16vh, 170px);
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 8% 100%, rgba(var(--gold-rgb), 0.28), transparent 50%),
+    linear-gradient(180deg, transparent, var(--brand-cream-deep));
+  mask-image: linear-gradient(180deg, transparent, #000 75%);
+}
+
+.intro {
+  width: 100%;
+  text-align: center;
+}

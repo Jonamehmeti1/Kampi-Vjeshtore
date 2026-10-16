@@ -1,0 +1,143 @@
+/* ─── Animacionet ─── */
+@keyframes ks-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 28px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes ks-fade-down {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -16px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes ks-fade-left {
+  from {
+    opacity: 0;
+    transform: translate3d(-48px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes ks-fade-right {
+  from {
+    opacity: 0;
+    transform: translate3d(48px, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes ks-zoom-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes ks-hero-zoom {
+  from {
+    transform: scale(1.08);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+:root {
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.site-header-mockup {
+  animation: ks-fade-down 0.6s var(--ease-smooth) backwards;
+}
+
+.hero-diaspora-img {
+  animation: ks-hero-zoom 2.2s var(--ease-smooth) both;
+}
+.hero-diaspora-content > * {
+  animation: ks-fade-up 0.9s var(--ease-smooth) backwards;
+}
+.hero-camp-badge {
+  animation-delay: 0.12s;
+}
+.hero-camp-title {
+  animation-delay: 0.22s;
+}
+.hero-camp-lead {
+  animation-delay: 0.34s;
+}
+.hero-camp-copy {
+  animation-delay: 0.44s;
+}
+.hero-camp-facts {
+  animation-delay: 0.54s;
+}
+.hero-diaspora-content .btn-camp {
+  animation-delay: 0.66s;
+}
+.hero-reg-card {
+  animation: ks-fade-up 0.9s var(--ease-smooth) 0.3s backwards;
+}
+
+.js-anim [data-reveal]:not(.is-visible),
+.js-anim [data-reveal-stagger]:not(.is-visible) > * {
+  opacity: 0;
+}
+.js-anim [data-reveal].is-visible {
+  animation: ks-fade-up 0.9s var(--ease-smooth) backwards;
+}
+.js-anim [data-reveal="left"].is-visible {
+  animation-name: ks-fade-left;
+}
+.js-anim [data-reveal="right"].is-visible {
+  animation-name: ks-fade-right;
+  animation-delay: 0.12s;
+}
+.js-anim [data-reveal="zoom"].is-visible {
+  animation-name: ks-zoom-in;
+}
+.js-anim [data-reveal-stagger].is-visible > * {
+  animation: ks-fade-up 0.8s var(--ease-smooth) backwards;
+}
+.js-anim [data-reveal-stagger].is-visible > :nth-child(2) {
+  animation-delay: 0.1s;
+}
+.js-anim [data-reveal-stagger].is-visible > :nth-child(3) {
+  animation-delay: 0.2s;
+}
+.js-anim [data-reveal-stagger].is-visible > :nth-child(4) {
+  animation-delay: 0.3s;
+}
+.js-anim [data-reveal-stagger].is-visible > :nth-child(5) {
+  animation-delay: 0.4s;
+}
+.js-anim [data-reveal-stagger].is-visible > :nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .site-header-mockup,
+  .hero-diaspora-img,
+  .hero-diaspora-content > *,
+  .hero-reg-card {
+    animation: none;
+  }
+}

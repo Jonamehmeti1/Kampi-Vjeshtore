@@ -1,0 +1,108 @@
+/* Footer */
+.site-footer {
+  background: var(--brand-forest-dark);
+  color: var(--brand-cream);
+  padding: 36px 0;
+  border-top: 4px solid var(--brand-gold);
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+.footer-logo {
+  width: 240px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 8px;
+  max-width: 100%;
+  display: block;
+}
+.footer-tagline {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.4;
+}
+.footer-social {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.footer-social a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(var(--cream-rgb), 0.12);
+  color: var(--brand-cream);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.2s,
+    transform 0.2s;
+}
+.footer-social a:hover {
+  transform: translateY(-2px);
+}
+.footer-social a.footer-social-facebook:hover {
+  background: var(--brand-orange);
+  color: var(--ink);
+}
+.footer-social a.footer-social-instagram:hover {
+  background: var(--brand-gold);
+  color: var(--ink);
+}
+.footer-social a.footer-social-whatsapp:hover {
+  background: var(--brand-orange);
+  color: var(--ink);
+}
+.footer-social a.footer-social-viber:hover {
+  background: var(--brand-gold);
+  color: var(--ink);
+}
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  text-align: right;
+}
+.footer-contact a {
+  color: var(--white);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+.footer-contact a:hover {
+  color: rgba(var(--cream-rgb), 0.8);
+}
+
+@media (max-width: 767px) {
+  .site-footer {
+    padding-bottom: 100px;
+    background: var(--brand-forest-dark);
+    color: var(--brand-cream);
+    border-top: 4px solid var(--brand-gold);
+  }
+  .footer-inner {
+    flex-direction: column;
+    text-align: center;
+    gap: 22px;
+  }
+  .footer-brand {
+    align-items: center;
+  }
+  .footer-contact {
+    align-items: center;
+    text-align: center;
+  }
+}

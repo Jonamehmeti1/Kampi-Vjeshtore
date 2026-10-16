@@ -1,0 +1,48 @@
+/* EDIT THE WEBSITE COLORS HERE.
+   These five colors define the theme. The remaining values are supporting
+   shades for readable text, gentle backgrounds, borders, and hover states. */
+:root {
+  --brand-orange: #ff4d00;
+  --brand-gold: #f9a826;
+  --brand-lime: #c5e83a;
+  --brand-forest: #206c55;
+  --brand-cream: #fff6e7;
+
+  --brand-orange-dark: #b23500;
+  --brand-orange-light: #ffe4d4;
+  --brand-gold-dark: #87500a;
+  --brand-gold-light: #fff0cd;
+  --brand-lime-dark: #526114;
+  --brand-lime-light: #f0f6cd;
+  --brand-forest-dark: #174f3e;
+  --brand-forest-light: #edf3e9;
+  --brand-cream-deep: #f6ead5;
+
+  --ink: #0d251c;
+  --surface: #fffbf2;
+  --white: #ffffff;
+  --text-body: #344b3f;
+  --text-muted: #606b5e;
+  --border: #e1dac5;
+  --placeholder: #73796a;
+
+  --orange-rgb: 255, 77, 0;
+  --gold-rgb: 249, 168, 38;
+  --lime-rgb: 197, 232, 58;
+  --forest-rgb: 32, 108, 85;
+  --cream-rgb: 255, 246, 231;
+  --ink-rgb: 13, 37, 28;
+
+  --button-fill: var(--brand-orange);
+  --button-hover: var(--brand-orange-dark);
+  --shadow: 0 4px 24px rgba(var(--forest-rgb), 0.07);
+  --shadow-brand: 0 8px 24px rgba(var(--orange-rgb), 0.2);
+  --gray-100: var(--brand-cream);
+  --gray-200: var(--border);
+  --gray-300: #cfc8b5;
+  --gray-400: var(--placeholder);
+  --gray-500: var(--text-muted);
+  --gray-700: var(--text-body);
+  --bg-warm: var(--brand-cream);
+  --bg-soft: var(--brand-forest-light);
+}

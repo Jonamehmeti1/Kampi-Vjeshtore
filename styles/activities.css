@@ -1,0 +1,187 @@
+/* Çfarë do të bëjë fëmija */
+.section-camp-do {
+  padding: 72px 0;
+  background: var(--brand-cream);
+}
+.camp-do-head {
+  display: grid;
+  gap: 14px;
+  margin-bottom: 36px;
+}
+.camp-do-eyebrow {
+  display: inline-block;
+  margin: 0 0 10px;
+  background: var(--brand-forest);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  font-size: 0.875rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.camp-do-title {
+  margin: 0;
+  color: var(--ink);
+  font-size: clamp(2rem, 4.4vw, 3.25rem);
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+.camp-do-accent {
+  background: var(--brand-forest);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.camp-do-rocket {
+  display: inline-block;
+  font-size: 0.7em;
+  vertical-align: 0.12em;
+}
+.camp-do-intro {
+  max-width: 400px;
+  margin: 0;
+  color: var(--text-body);
+  font-size: 1.02rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+.camp-do-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.camp-do-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 22px 16px 24px;
+  border: 1px solid rgba(var(--forest-rgb), 0.06);
+  border-radius: 20px;
+  background: linear-gradient(165deg, var(--surface), var(--brand-orange-light));
+  box-shadow: 0 10px 30px rgba(var(--forest-rgb), 0.07);
+  text-align: center;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+  border-color: var(--border);
+  border-top: 3px solid var(--brand-orange);
+}
+.camp-do-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(var(--forest-rgb), 0.12);
+}
+.camp-do-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+.camp-do-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 112px;
+  margin-bottom: 12px;
+}
+.camp-do-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transform: scale(1.15);
+  transition: transform 0.3s ease;
+}
+.camp-do-card:hover .camp-do-media img {
+  transform: scale(1.22);
+}
+.camp-do-card h3 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 1.08rem;
+  font-weight: 800;
+  line-height: 1.25;
+}
+.camp-do-card p {
+  max-width: 210px;
+  margin: 0;
+  color: var(--text-body);
+  font-size: 0.92rem;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+  .camp-do-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .camp-do-card:last-child:nth-child(odd) {
+    grid-column: auto;
+  }
+}
+@media (min-width: 992px) {
+  .section-camp-do {
+    padding: 88px 0;
+    background: var(--brand-cream);
+  }
+  .camp-do-head {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+    gap: 40px;
+    margin-bottom: 40px;
+  }
+  .camp-do-grid {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+@media (max-width: 575px) {
+  .section-camp-do {
+    padding: 56px 0;
+    background: var(--brand-cream);
+  }
+  .camp-do-head {
+    margin-bottom: 28px;
+  }
+  .camp-do-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .camp-do-card {
+    display: grid;
+    grid-template-columns: 88px minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 16px;
+    align-items: center;
+    padding: 14px 18px 14px 14px;
+    border-radius: 18px;
+    text-align: left;
+    border-color: var(--border);
+    border-top: 3px solid var(--brand-orange);
+    background: linear-gradient(165deg, var(--surface), var(--brand-orange-light));
+  }
+  .camp-do-media {
+    grid-row: 1 / span 2;
+    width: 88px;
+    height: 88px;
+    margin-bottom: 0;
+  }
+  .camp-do-card h3 {
+    align-self: end;
+    margin-bottom: 4px;
+    font-size: 1.05rem;
+  }
+  .camp-do-card p {
+    align-self: start;
+    max-width: none;
+    font-size: 0.9rem;
+  }
+}
+.camp-do-card:nth-child(2n) {
+  border-top-color: var(--brand-gold);
+  background: linear-gradient(165deg, var(--surface), var(--brand-gold-light));
+}
+.camp-do-card:nth-child(3n) {
+  border-top-color: var(--brand-lime);
+  background: linear-gradient(165deg, var(--surface), var(--brand-lime-light));
+}

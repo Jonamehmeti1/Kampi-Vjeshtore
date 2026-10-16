@@ -1,0 +1,7 @@
+node_modules
+.next
+.draft-backup
+.qa
+package-lock.json
+AGENTS.md
+next-env.d.ts

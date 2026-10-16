@@ -1,0 +1,133 @@
+/* Chatbot styling is separate from the recreated reference page. */
+.camp-chat {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 1100;
+}
+.camp-chat-launcher {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 13px 18px;
+  border-radius: 999px;
+  background: var(--brand-forest);
+  color: var(--white);
+  box-shadow: 0 6px 24px rgba(var(--forest-rgb), 0.19);
+  font-size: 12px;
+  font-weight: 700;
+}
+.camp-chat-launcher > span:first-child {
+  font-size: 20px;
+}
+.camp-chat-panel {
+  position: absolute;
+  bottom: 65px;
+  right: 0;
+  width: 350px;
+  max-width: calc(100vw - 30px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: 0 15px 60px rgba(var(--forest-rgb), 0.19);
+  border-color: var(--border);
+}
+.camp-chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 17px;
+  color: var(--white);
+  background: var(--brand-forest);
+}
+.camp-chat-header strong {
+  display: block;
+  font-size: 14px;
+}
+.camp-chat-header small {
+  display: block;
+  font-size: 10px;
+  margin-top: 4px;
+  opacity: 0.8;
+}
+.camp-chat-header button {
+  color: var(--white);
+  font-size: 25px;
+  padding: 0 5px;
+}
+.camp-chat-messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 250px;
+  max-height: 40dvh;
+  padding: 14px;
+  overflow-y: auto;
+}
+.camp-chat-message {
+  flex-shrink: 0;
+  max-width: 92%;
+  padding: 11px;
+  border-radius: 10px;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.camp-chat-message.bot {
+  align-self: flex-start;
+  background: var(--brand-gold-light);
+  color: var(--text-body);
+}
+.camp-chat-message.user {
+  align-self: flex-end;
+  background: var(--brand-forest);
+  color: var(--white);
+}
+.camp-chat-questions {
+  display: flex;
+  gap: 6px;
+  padding: 0 14px 12px;
+}
+.camp-chat-questions button {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 7px 9px;
+  color: var(--brand-forest-dark);
+  font-size: 10px;
+  background: var(--brand-cream);
+}
+.camp-chat-form {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--border);
+}
+.camp-chat-form input {
+  min-width: 0;
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px;
+  font: inherit;
+  font-size: 12px;
+  background: var(--brand-cream);
+  color: var(--text-body);
+}
+.camp-chat-form button {
+  width: 38px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  color: var(--ink);
+  background: var(--brand-orange);
+  font-size: 20px;
+}
+.camp-chat-form button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+@media (max-width: 767px) {
+  .camp-chat {
+    right: 15px;
+    bottom: 88px;
+  }
+}

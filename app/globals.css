@@ -1,0 +1,20 @@
+/* Each stylesheet is named after the part of the page it controls. */
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap");
+@import "../styles/palette.css";
+@import "../styles/base.css";
+@import "../styles/header.css";
+@import "../styles/hero.css";
+@import "../styles/activities.css";
+@import "../styles/programs.css";
+@import "../styles/registration.css";
+@import "../styles/footer.css";
+@import "../styles/mobile.css";
+@import "../styles/animations.css";
+@import "../styles/chatbot.css";
+
+/* Keyboard navigation stays visible across the site. */
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid var(--brand-forest);
+  outline-offset: 4px;
+}

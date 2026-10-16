@@ -186,7 +186,7 @@
 .group-title {
   position: relative;
   z-index: 1;
-  margin: 0 0 11px;
+  margin: 0 0 22px;
   color: var(--ink);
   font-size: clamp(1.5rem, 2.75vw, 2rem);
   font-weight: 800;
@@ -198,28 +198,6 @@
   display: block;
 }
 
-/* Full descriptions stay above the features and illustration footer. */
-.group-descriptions {
-  position: relative;
-  z-index: 1;
-  margin-bottom: 24px;
-}
-.group-description + .group-description {
-  margin-top: 19px;
-}
-.group-description h4 {
-  margin: 0 0 6px;
-  color: var(--brand-forest-dark);
-  font-size: 14.5px;
-  font-weight: 800;
-  line-height: 1.45;
-}
-.group-text {
-  margin: 0;
-  color: var(--text-muted);
-  font-size: 14.5px;
-  line-height: 1.65;
-}
 .group-features {
   position: relative;
   z-index: 1;
@@ -241,17 +219,18 @@
   position: relative;
   display: flex;
   align-items: flex-end;
-  min-height: 180px;
+  min-height: 160px;
   margin-top: auto;
   padding-top: 20px;
 }
-/* The illustrations get their own space so they never cover the descriptions. */
+/* The illustrations have their own space below the key points. */
 .group-media {
   position: absolute;
   right: 0;
   bottom: 0;
   width: 46%;
-  height: 170px;
+  max-width: 150px;
+  height: 150px;
   background-image: url("/images/program-illustrations.png");
   background-size: 300% auto;
   background-repeat: no-repeat;
@@ -338,17 +317,6 @@
   height: 64px;
   background: url("/images/hero-journey-icons.png") 50% 100% / 300% 200% no-repeat;
   transform: rotate(-12deg);
-}
-/* The shorter first description leaves room for a larger construction scene. */
-@media (min-width: 901px) {
-  .group-card--orange .group-card-footer {
-    min-height: 350px;
-  }
-  .group-card--orange .group-media {
-    width: min(100%, 290px);
-    height: 290px;
-    bottom: 58px;
-  }
 }
 @media (max-width: 1050px) and (min-width: 901px) {
   .group-card {

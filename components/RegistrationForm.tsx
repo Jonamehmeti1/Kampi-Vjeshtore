@@ -3,8 +3,9 @@
 import { useState, type FormEvent } from "react";
 import { ages, formText, schedules } from "../content/camp";
 import { schoolsByLocation } from "../content/schools";
+import RegistrationFieldIcon from "./RegistrationFieldIcon";
 
-// One form component is reused twice, with unique field IDs for each copy.
+// Each form variant uses unique field IDs.
 // It currently validates locally and displays a demo message; no API is called.
 export default function RegistrationForm({ variant }: { variant: "hero" | "lower" }) {
   const [school, setSchool] = useState("");
@@ -29,13 +30,14 @@ export default function RegistrationForm({ variant }: { variant: "hero" | "lower
           ) : (
             <h3 className="join-form-title">{formText.lowerTitle}</h3>
           )}
-          <p>
-            {variant === "hero" ? formText.heroDescription : formText.lowerDescription}
-          </p>
+          {variant === "hero" && <p>{formText.heroDescription}</p>}
         </div>
       </div>
 
-      <form onSubmit={handleSubmit}>
+      <form
+        onSubmit={handleSubmit}
+        aria-label={variant === "hero" ? formText.heroTitle : formText.lowerTitle}
+      >
         {submitted && (
           <p className="form-message success" role="status">
             {formText.demoFeedback}
@@ -45,45 +47,55 @@ export default function RegistrationForm({ variant }: { variant: "hero" | "lower
         <div className="hero-reg-fields">
           <div className="form-group">
             <label htmlFor={prefix + "-parent"}>{formText.parentLabel}</label>
-            <input
-              id={prefix + "-parent"}
-              name="parent_name"
-              autoComplete="name"
-              placeholder={formText.parentPlaceholder}
-              required
-              maxLength={100}
-            />
+            <div className="registration-input">
+              {variant === "lower" && <RegistrationFieldIcon name="person" />}
+              <input
+                id={prefix + "-parent"}
+                name="parent_name"
+                autoComplete="name"
+                placeholder={formText.parentPlaceholder}
+                required
+                maxLength={100}
+              />
+            </div>
           </div>
 
           <div className="form-group">
             <label htmlFor={prefix + "-phone"}>{formText.phoneLabel}</label>
-            <input
-              id={prefix + "-phone"}
-              name="phone"
-              type="tel"
-              autoComplete="tel"
-              inputMode="tel"
-              placeholder={formText.phonePlaceholder}
-              required
-              maxLength={40}
-            />
+            <div className="registration-input">
+              {variant === "lower" && <RegistrationFieldIcon name="phone" />}
+              <input
+                id={prefix + "-phone"}
+                name="phone"
+                type="tel"
+                autoComplete="tel"
+                inputMode="tel"
+                placeholder={formText.phonePlaceholder}
+                required
+                maxLength={40}
+              />
+            </div>
           </div>
 
           <div className="form-group">
             <label htmlFor={prefix + "-child"}>{formText.childLabel}</label>
-            <input
-              id={prefix + "-child"}
-              name="child_name"
-              autoComplete="off"
-              placeholder={formText.childPlaceholder}
-              required
-              maxLength={100}
-            />
+            <div className="registration-input">
+              {variant === "lower" && <RegistrationFieldIcon name="person" />}
+              <input
+                id={prefix + "-child"}
+                name="child_name"
+                autoComplete="off"
+                placeholder={formText.childPlaceholder}
+                required
+                maxLength={100}
+              />
+            </div>
           </div>
 
           <div className="form-group">
             <label htmlFor={prefix + "-age"}>{formText.ageLabel}</label>
             <div className="hero-select">
+              {variant === "lower" && <RegistrationFieldIcon name="users" />}
               <select id={prefix + "-age"} name="child_age" defaultValue="" required>
                 <option value="" disabled>
                   {formText.agePlaceholder}
@@ -100,6 +112,7 @@ export default function RegistrationForm({ variant }: { variant: "hero" | "lower
           <div className="form-group hero-reg-full">
             <label htmlFor={prefix + "-schedule"}>{formText.scheduleLabel}</label>
             <div className="hero-select">
+              {variant === "lower" && <RegistrationFieldIcon name="clock" />}
               <select id={prefix + "-schedule"} name="schedule" defaultValue="" required>
                 <option value="" disabled>
                   {formText.schedulePlaceholder}
@@ -116,6 +129,7 @@ export default function RegistrationForm({ variant }: { variant: "hero" | "lower
           <div className="form-group hero-reg-full">
             <label htmlFor={prefix + "-school"}>{formText.schoolLabel}</label>
             <div className="hero-select">
+              {variant === "lower" && <RegistrationFieldIcon name="school" />}
               <select
                 id={prefix + "-school"}
                 name="school"
@@ -146,25 +160,19 @@ export default function RegistrationForm({ variant }: { variant: "hero" | "lower
               <label htmlFor={prefix + "-other-school"}>
                 {formText.otherSchoolLabel}
               </label>
-              <input
-                id={prefix + "-other-school"}
-                name="school_other"
-                placeholder={formText.otherSchoolPlaceholder}
-                required
-                maxLength={150}
-              />
+              <div className="registration-input">
+                {variant === "lower" && <RegistrationFieldIcon name="school" />}
+                <input
+                  id={prefix + "-other-school"}
+                  name="school_other"
+                  placeholder={formText.otherSchoolPlaceholder}
+                  required
+                  maxLength={150}
+                />
+              </div>
             </div>
           )}
         </div>
-
-        {variant === "hero" && (
-          <p className="hero-reg-note">
-            <span className="hero-reg-note-icon" aria-hidden="true">
-              i
-            </span>
-            <span>{formText.scheduleNote}</span>
-          </p>
-        )}
 
         <button
           type="submit"
@@ -175,7 +183,6 @@ export default function RegistrationForm({ variant }: { variant: "hero" | "lower
           {formText.submitButton}
           <span aria-hidden="true">→</span>
         </button>
-        <p className="hero-reg-foot">{formText.demoNote}</p>
       </form>
     </div>
   );

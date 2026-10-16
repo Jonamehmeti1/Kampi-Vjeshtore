@@ -40,25 +40,15 @@ export const programsSection = {
     "Zgjidh grupin dhe zbulo programin e duhur për fëmijën tuaj.",
 };
 
-// Each card: age badge, title, description, three features, and button label.
+// Each card: age badge, title, three features, and button label.
 // artwork picks a scene from /images/program-illustrations.png.
 export const programs = [
   {
     ages: "4–6 vjeç",
     title: "Big Builders",
     subtitle: "",
-    descriptions: [
-      {
-        title: "",
-        text: "Hapat e parë në botën e inxhinierisë! Përmes ndërtimit të modeleve 3D me kitet K'NEX, fëmijët zhvillojnë kreativitetin, aftësitë motorike dhe mësojnë të mendojnë në mënyrë kritike e të pavarur.",
-      },
-    ],
-    features: [
-      "Ndërtimi i modeleve 3D",
-      "Zhvillimi i aftësive motorike",
-      "Mendim kritik dhe i pavarur",
-    ],
-    buttonLabel: "Zbulo programin",
+    features: ["Modele 3D me K'NEX", "Aftësi motorike", "Mendim kritik"],
+    buttonLabel: "Regjistrohu",
     artwork: "builders",
     color: "orange",
   },
@@ -66,22 +56,12 @@ export const programs = [
     ages: "7–10 vjeç",
     title: "Bricks Challenge",
     subtitle: "Young Coders",
-    descriptions: [
-      {
-        title: "Bricks Challenge",
-        text: "Përmes ndërtimit të modeleve me LEGO, fëmijët eksplorojnë parimet e matematikës, fizikës, inxhinierisë dhe robotikës, duke zhvilluar kreativitetin, aftësitë e planifikimit, menaxhimin e kohës dhe mendimin e pavarur.",
-      },
-      {
-        title: "Young Coders",
-        text: "Fëmijët hedhin hapat e parë në botën e programimit, duke mësuar konceptet themelore të kodimit dhe duke zhvilluar mendimin logjik përmes aktiviteteve interaktive.",
-      },
-    ],
     features: [
-      "Ndërtime kreative me LEGO dhe njohuri STEM",
-      "Njohja me bazat e programimit",
-      "Mendim logjik, kreativitet dhe zgjidhje problemesh",
+      "Ndërtime LEGO & STEM",
+      "Bazat e programimit",
+      "Logjikë & zgjidhje problemesh",
     ],
-    buttonLabel: "Shiko më shumë",
+    buttonLabel: "Regjistrohu",
     artwork: "robotics",
     color: "gold",
   },
@@ -89,22 +69,8 @@ export const programs = [
     ages: "11–15 vjeç",
     title: "Algo Play",
     subtitle: "Junior Coders",
-    descriptions: [
-      {
-        title: "Algo Play",
-        text: "Kodimi takohet me robotikën! Përmes platformës Algobrix dhe ndërtimeve praktike me LEGO, pjesëmarrësit eksplorojnë bazat e kodimit, algoritmeve dhe planifikimit të projekteve në mënyrë kreative.",
-      },
-      {
-        title: "Junior Coders",
-        text: "Nga ideja te website-i! Pjesëmarrësit zbulojnë botën e zhvillimit të faqeve web, mësojnë si ndërtohet një website dhe përdorin kreativitetin për t'i kthyer idetë e tyre në faqe funksionale.",
-      },
-    ],
-    features: [
-      "Kodim dhe robotikë me Algobrix",
-      "Algoritme dhe planifikim projektesh",
-      "Krijimi i faqeve web",
-    ],
-    buttonLabel: "Eksploro programin",
+    features: ["Robotikë me Algobrix", "Algoritme & planifikim", "Krijimi i faqeve web"],
+    buttonLabel: "Regjistrohu",
     artwork: "coding",
     color: "lime",
   },
@@ -112,14 +78,16 @@ export const programs = [
 
 export const registration = {
   eyebrow: "Regjistrimi është i hapur",
-  title: "Rezervo vendin e fëmijës në",
+  title: "Rezervo vendin e fëmijës",
+  preposition: "në",
   highlightedTitle: "Kampin Vjeshtor",
   description:
-    "shkruj diqka",
+    "Zgjidh programin sipas grupmoshës dhe bëhu pjesë e 3 ditëve plot zbulime, eksperimente dhe kreativitet.",
   dateNote: "3 ditë · 1.5 orë në ditë",
   ageNote: "Programe sipas grupmoshave",
-  priceNote: "Falas",
-  limitedPlaces: "Vendet janë të limituara, rezervo sot!",
+  priceNote: "Vendet janë të limituara",
+  limitedPlaces: "Vendet janë të limituara,",
+  limitedPlacesAction: "rezervo sot!",
 };
 
 // The form is a local preview. It does not send, store, or reserve anything.

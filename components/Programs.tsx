@@ -116,14 +116,6 @@ export default function Programs() {
                 {program.title}
                 {program.subtitle && <span>&amp; {program.subtitle}</span>}
               </h3>
-              <div className="group-descriptions">
-                {program.descriptions.map((description, index) => (
-                  <div className="group-description" key={description.title || index}>
-                    {description.title && <h4>{description.title}</h4>}
-                    <p className="group-text">{description.text}</p>
-                  </div>
-                ))}
-              </div>
               <ul className="group-features">
                 {program.features.map((feature) => (
                   <li key={feature}>

@@ -3,23 +3,25 @@
 export const heroJourney = [
   {
     day: "DITA 1",
-    title: "ZBULO",
+    title: "NDËRTO",
     description:
-      "Hulumto, pyet dhe zbulo botën e inxhinierisë, shkencës dhe teknologjisë.",
+      "Nga modelet 3D te konstruksionet inxhinierike, çdo ndërtim sjell një sfidë të re.",
     color: "gold",
     illustration: "magnifier",
   },
   {
     day: "DITA 2",
-    title: "EKSPERIMENTO",
-    description: "Provo, krijo dhe mëso përmes eksperimenteve interaktive.",
+    title: "PROGRAMO",
+    description:
+      "Zbulo botën e kodimit, algoritmeve dhe robotikës përmes aktiviteteve praktike.",
     color: "forest",
     illustration: "flask",
   },
   {
     day: "DITA 3",
-    title: "KRIJO",
-    description: "Ndërto, programo dhe kthe idetë e tua në projekte reale!",
+    title: "SFIDO VETEN",
+    description:
+      "Zhvillo kreativitetin, mendimin logjik dhe aftësitë për zgjidhjen e problemeve.",
     color: "orange",
     illustration: "bulb",
   },

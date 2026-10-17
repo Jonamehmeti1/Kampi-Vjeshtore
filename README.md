@@ -68,7 +68,7 @@ An image at `public/images/hero.png` is referenced in code as `"/images/hero.png
 
 ## Forms and chatbot
 
-Both forms validate fields in the browser and show a clear demo response. They **do not send or store data or reserve places**. The school dropdown keeps the groups in content/schools.ts and is available immediately. There is no separate camp-location field or locations section. Choosing “Tjetër” shows a school-name field.
+Both registration forms submit to /api/registrations. The server validates fields and appends each registration to a private Google Sheet. Success appears only after Google confirms the write. The school dropdown uses content/schools.ts.
 
 The chatbot uses preset answers in `content/chatbot.ts`. It is not connected to an AI API. A real AI integration should call a server endpoint and keep API keys on the server.
 
@@ -85,7 +85,7 @@ Run the formatter after editing to keep code indented and readable.
 
 ## Current status
 
-The registration forms and chatbot are demos. No registration backend, AI service, or deployment is configured.
+Registration forms use Google Sheets when the server environment is configured. The chatbot is a demo. No AI service or deployment is configured.
 
 ## Website palette
 
@@ -102,3 +102,31 @@ Edit the shared colors in `styles/palette.css`:
 Orange marks actions, gold and lime highlight cards, forest anchors headings and panels, and cream supplies the backgrounds. Supporting shades keep text readable. Section layout stays in its named stylesheet.
 
 The opening day-card text is in `content/hero-journey.ts`, and its layout is in `styles/hero-intro.module.css`. Illustration source details and the generation prompt are in `content/hero-artwork.md`.
+
+## Google Sheets registrations
+
+Copy .env.example to .env.local and set GOOGLE_SHEET_ID and GOOGLE_SHEET_TAB
+to your spreadsheet ID and exact tab name. Set GOOGLE_APPLICATION_CREDENTIALS
+to the absolute path of your service account JSON file outside the repository.
+Share only the destination spreadsheet with the service account as an Editor.
+Restart npm run dev after changing environment variables.
+
+Use these headings in row 1, columns A through J:
+Submitted at | Parent name | Phone | Child name | Age | Schedule | School | Contacted | Confirmed | Paid
+
+Rows are appended using RAW values so input is stored as text rather than formulas.
+Times are recorded in UTC. The final three columns are left blank for your team.
+A submitted registration is a request; staff still confirm availability.
+
+Run node scripts/check-sheets.mjs to verify credentials and the tab name without
+reading or writing registration rows.
+
+For deployment, configure GOOGLE_SHEET_ID, GOOGLE_SHEET_TAB, and the server-only
+GOOGLE_SERVICE_ACCOUNT_JSON secret (the full credentials JSON) in your hosting
+provider. Do not set a local GOOGLE_APPLICATION_CREDENTIALS path on the host.
+Never use NEXT_PUBLIC_ for credentials or commit the downloaded JSON key.
+The .env.local file is ignored by Git.
+
+If a submission returns an uncertain network error, check the sheet before
+retrying to avoid duplicates. This integration has no distributed rate limiter
+or automatic seat/payment management.

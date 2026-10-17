@@ -36,8 +36,7 @@ export const campFacts = {
 
 export const programsSection = {
   title: "Programet",
-  description:
-    "Zgjidh grupin dhe zbulo programin e duhur për fëmijën tuaj.",
+  description: "Zgjidh grupin dhe zbulo programin e duhur për fëmijën tuaj.",
 };
 
 // Each card: age badge, title, three features, and button label.
@@ -90,7 +89,7 @@ export const registration = {
   limitedPlacesAction: "rezervo sot!",
 };
 
-// The form is a local preview. It does not send, store, or reserve anything.
+// Registrations are saved to the private Google Sheet by the server.
 export const formText = {
   heroTitle: "Regjistro fëmijën tani",
   heroDescription: "Plotëso të dhënat për të rezervuar vendin.",
@@ -112,8 +111,10 @@ export const formText = {
   otherSchoolLabel: "Emri i shkollës",
   otherSchoolPlaceholder: "Shkruaj emrin e shkollës",
   submitButton: "Regjistrohu",
-  demoFeedback:
-    "Formulari u provua me sukses. Ky është një demonstrim; nuk u dërguan të dhëna dhe nuk u rezervua vend.",
+  successFeedback: "Regjistrimi u dërgua me sukses. Do t'ju kontaktojmë për konfirmim.",
+  errorFeedback:
+    "Regjistrimi nuk u konfirmua. Ju lutemi na kontaktoni ose provoni përsëri.",
+  pendingLabel: "Duke dërguar...",
 };
 
 // Options shown in the registration forms.

@@ -1,4 +1,4 @@
-﻿import { chromium } from "@playwright/test";
+import { chromium } from "@playwright/test";
 import fs from "node:fs/promises";
 import assert from "node:assert/strict";
 import { schoolsByLocation } from "../content/schools.ts";
@@ -102,7 +102,10 @@ page.on("request", (request) => {
   if (request.method() === "POST") registrationRequests++;
 });
 
-// The lower form validates required fields before showing demo feedback.
+// Mock delivery so browser checks never write test families to the live sheet.
+await page.route("**/api/registrations", (route) =>
+  route.fulfill({ status: 200, json: { ok: true } }),
+);
 await page.locator("#rezervo-oferta button[type=submit]").click();
 assert.equal(await page.locator("#rezervo-oferta [role=status]").count(), 0);
 await page.locator("#join-parent").fill("Prind Test");
@@ -113,7 +116,7 @@ await page.locator("#join-school").selectOption("Faik Konica");
 await page.locator("#join-schedule").selectOption({ index: 1 });
 await page.locator("#rezervo-oferta button[type=submit]").click();
 await page.locator("#rezervo-oferta [role=status]").waitFor();
-assert.equal(registrationRequests, 0);
+assert.equal(registrationRequests, 1);
 
 // Chat opens, replies, and restores launcher focus when closed.
 await page.locator(".camp-chat-launcher").click();

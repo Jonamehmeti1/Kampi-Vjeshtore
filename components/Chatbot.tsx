@@ -1,25 +1,19 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { chatbot, chatbotTopics } from "../content/chatbot";
+import { chatbot, getReply, type ChatContext } from "../content/chatbot";
 
 type Message = { role: "bot" | "user"; text: string };
 
-// Looks for a known topic. Replace this with a server API call to add AI later.
-function getReply(question: string) {
-  const normalizedQuestion = question.toLocaleLowerCase("sq");
-  const topic = chatbotTopics.find((topic) =>
-    topic.keywords.some((keyword) => normalizedQuestion.includes(keyword)),
-  );
-  return topic?.answer ?? chatbot.fallback;
-}
-
 export default function Chatbot() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isTyping, setIsTyping] = useState(false);
+  const replyTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const [draft, setDraft] = useState("");
   const [messages, setMessages] = useState<Message[]>([
     { role: "bot", text: chatbot.greeting },
   ]);
+  const contextRef = useRef<ChatContext>({ awaitingAge: true });
   const inputRef = useRef<HTMLInputElement>(null);
   const launcherRef = useRef<HTMLButtonElement>(null);
   const endRef = useRef<HTMLDivElement>(null);
@@ -29,16 +23,28 @@ export default function Chatbot() {
       inputRef.current?.focus();
       endRef.current?.scrollIntoView({ block: "nearest" });
     }
-  }, [isOpen, messages]);
+  }, [isOpen, messages, isTyping]);
+
+  useEffect(
+    () => () => {
+      if (replyTimerRef.current !== null) clearTimeout(replyTimerRef.current);
+    },
+    [],
+  );
 
   function sendMessage(question: string) {
-    if (!question.trim()) return;
-    setMessages((previous) => [
-      ...previous,
-      { role: "user", text: question.trim() },
-      { role: "bot", text: getReply(question) },
-    ]);
+    if (!question.trim() || replyTimerRef.current !== null) return;
+    const reply = getReply(question, contextRef.current);
+    contextRef.current = reply.context;
+    setMessages((previous) => [...previous, { role: "user", text: question.trim() }]);
     setDraft("");
+    setIsTyping(true);
+    const delay = Math.min(1600, Math.max(700, reply.text.length * 8));
+    replyTimerRef.current = setTimeout(() => {
+      setMessages((previous) => [...previous, { role: "bot", text: reply.text }]);
+      setIsTyping(false);
+      replyTimerRef.current = null;
+    }, delay);
   }
 
   function closeChat() {
@@ -73,12 +79,27 @@ export default function Chatbot() {
                 {message.text}
               </p>
             ))}
+            {isTyping && (
+              <p
+                className="camp-chat-message bot camp-chat-typing"
+                role="status"
+                aria-label="Duke shkruar"
+              >
+                <span aria-hidden="true" />
+                <span aria-hidden="true" />
+                <span aria-hidden="true" />
+              </p>
+            )}
             <div ref={endRef} />
           </div>
 
           <div className="camp-chat-questions">
             {chatbot.quickQuestions.map((question) => (
-              <button key={question} onClick={() => sendMessage(question)}>
+              <button
+                key={question}
+                onClick={() => sendMessage(question)}
+                disabled={isTyping}
+              >
                 {question}
               </button>
             ))}
@@ -99,7 +120,11 @@ export default function Chatbot() {
               onChange={(event) => setDraft(event.target.value)}
               maxLength={500}
             />
-            <button type="submit" aria-label={chatbot.sendLabel} disabled={!draft.trim()}>
+            <button
+              type="submit"
+              aria-label={chatbot.sendLabel}
+              disabled={!draft.trim() || isTyping}
+            >
               ↑
             </button>
           </form>

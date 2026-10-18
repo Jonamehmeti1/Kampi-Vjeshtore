@@ -70,7 +70,7 @@ An image at `public/images/hero.png` is referenced in code as `"/images/hero.png
 
 Both registration forms submit to /api/registrations. The server validates fields and appends each registration to a private Google Sheet. Success appears only after Google confirms the write. The school dropdown uses content/schools.ts.
 
-The chatbot uses preset answers in `content/chatbot.ts`. It is not connected to an AI API. A real AI integration should call a server endpoint and keep API keys on the server.
+The chatbot runs locally with no API key or AI fees. Its answers and matching logic live in `content/chatbot.ts`, using shared camp facts, program details, schedules, and contacts from `content/camp.ts`. It recognizes Albanian accents, common spelling variations and small typos, answers multiple recognized topics, and remembers an age for simple program follow-ups. Unknown questions prompt clarification; it cannot check live availability or register a child.
 
 ## Code formatting and checks
 
@@ -85,7 +85,7 @@ Run the formatter after editing to keep code indented and readable.
 
 ## Current status
 
-Registration forms use Google Sheets when the server environment is configured. The chatbot is a demo. No AI service or deployment is configured.
+Registration forms use Google Sheets when the server environment is configured. The chatbot is a local FAQ assistant. No paid AI service is configured.
 
 ## Website palette
 
